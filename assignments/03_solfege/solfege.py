@@ -43,7 +43,7 @@ def main():
     if key in ref:
         print(key + ", " + ref[key] )
     elif key:
-        print(" I dont know " + key)
+        print(" I dont know " + " '" + key + "' ")
 
 # --------------------------------------------------
 if __name__ == '__main__':
