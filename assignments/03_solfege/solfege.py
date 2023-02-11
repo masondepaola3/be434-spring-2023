@@ -39,10 +39,11 @@ def main():
             "La" : "A note to follow sol",
             "Ti" : "A drink with jam and bread" }
 
+
     if key in ref:
-        print(ref[key])
+        print(key + ", " + ref[key] )
     elif key:
-        print("I don't know" + [key])
+        print(" I dont know " + key)
 
 # --------------------------------------------------
 if __name__ == '__main__':
