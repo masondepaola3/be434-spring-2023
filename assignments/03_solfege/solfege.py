@@ -17,7 +17,9 @@ def get_args():
         description='Solfege',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-    parser.add_argument('key',
+    parser.add_argument('keys',
+                        # add nargs to say 1 or more
+                        nargs='+',
                         metavar='str',
                         help='Solfege')
 
@@ -28,22 +30,29 @@ def get_args():
 def main():
     """Play Song"""
 
-
     args = get_args()
-    key = args.key
-    ref = { "Do" : "A deer, a female deer", 
-            "Re" : "A drop of golden sun", 
-            "Mi" : "A name I call myself", 
-            "Fa" : "A long long way to run",
-            "Sol" : "A needle pulling thread",
-            "La" : "A note to follow sol",
-            "Ti" : "A drink with jam and bread" }
+    keys = args.keys
+    ref = { 
+        "Do" : "A deer, a female deer", 
+        "Re" : "A drop of golden sun", 
+        "Mi" : "A name I call myself", 
+        "Fa" : "A long long way to run",
+        "Sol" : "A needle pulling thread",
+        "La" : "A note to follow sol",
+        "Ti" : "A drink with jam and bread", 
+    }
 
-
-    if key in ref:
-        print(key + ", " + ref[key] )
-    elif key:
-        print(" I dont know " + " '" + key + "' ")
+    # you forgot to loop through the notes from user input
+    # this is a list not a string, I changed the variables above to "keys"
+    # to show that the list is one or more items
+    for key in keys:
+        if key in ref:
+            print(key + ", " + ref[key])
+            # I usually use the get method to get the key
+            #print(key + ", " + ref.get(key))
+        else:
+            # fixed this line for punctuation expected by the test
+            print("I don't know" + ' "' + key + '"')
 
 # --------------------------------------------------
 if __name__ == '__main__':
