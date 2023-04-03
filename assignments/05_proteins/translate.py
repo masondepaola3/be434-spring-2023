@@ -47,6 +47,7 @@ def main():
     seq = args.positional
     codons_file = args.codons
     output_file = args.outfile
+    
     table = {}
     for line in codons_file:
         (key, val) = line.rstrip().split()
